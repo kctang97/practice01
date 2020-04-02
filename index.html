@@ -1,0 +1,53 @@
+
+<!doctype HTML>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title> AR </title>
+  <script src="aframe.min.js"></script>
+  <script src="aframe-ar.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script> -->
+  <!-- <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script> -->
+  <!-- <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script> -->
+  <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+  <script src="sketch.js"></script>
+  <script src="char.js"></script>
+  <script src="vb1.js"></script>
+
+</head>
+
+<body>
+
+  <!-- <script src="vb2.js"></script> -->
+
+
+  <a-scene embedded="" arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+
+    <a-assets>
+        <a-asset-item id="virus1" src="assets/objects/Virus2.gltf"></a-asset-item>
+    </a-assets>
+      <a-marker type="pattern" url="assets/images/pattern-QRcode.patt">
+        <a-gltf-model src="#virus1" scale="1.5 1.5 1.5"></a-gltf-model>
+        <a-entity position="0 2 -15" particle-system="preset: dust; particleCount: 2000; color: #E80C3B; size: 2" scale = "0.05"></a-entity>
+        <a-entity position="0 2 -15" particle-system="preset: dust; particleCount: 3000; color: #50E813; size: 2" scale = "0.15"></a-entity>
+      </a-marker>
+
+      <a-assets>
+          <a-asset-item id="virus2" src="assets/objects/Virus.gltf"></a-asset-item>
+      </a-assets>
+        <a-marker type="pattern" url="assets/images/QR.patt">
+          <a-gltf-model src="#virus2" scale="1.5 1.5 1.5"></a-gltf-model>
+          <a-entity position="0 2 -15" particle-system="preset: dust; particleCount: 2000; color: #E80C3B; size: 2" scale = "0.05"></a-entity>
+          <a-entity position="0 2 -15" particle-system="preset: dust; particleCount: 3000; color: #50E813; size: 2" scale = "0.1"></a-entity>
+        </a-marker>
+
+    <a-entity camera look-controls touchEnabled = "true"></a-entity>
+  </a-scene>
+</body>
+</html>
